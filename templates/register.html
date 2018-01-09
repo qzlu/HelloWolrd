@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册页面</title>
+	 <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+	<h1>注册</h1>
+	<p><label >用户名<input type="text" id="name"></label></p>
+	<p><label >密码  <input type="password" id="psd"></label></p>
+	<p id="info"></p>
+	<p><button>注册</button></p>
+	<p><a href="/">返回登录</a></p>
+	<script>
+	$(function(){
+		$('button').click(function(){
+			$.post("/register/",{"username":$("#name").val(),"psd":$("#psd").val()},function(json){
+				console.log(json)
+				$("#info").text(json)
+			})
+		})
+	})
+	</script>
+</body>
+</html>

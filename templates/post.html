@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="utf-8" /> 
+    <title>Search - w3cschool.cn</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+  <form action="/search-post/" method="post">
+    <!--  {% csrf_token %} -->
+      <input type="text" name="q">
+        <input type="submit" value="Submit">
+    </form>
+	<button onclick="a()">提交</button>
+   <p>{{ rlt }}</p>
+</body>
+<script>
+	$(function(){
+
+	})
+	function a(){
+		$.post("/search-post/",
+			{'a':"123"},
+			function(data){
+				let a=JSON.parse(data)
+				console.log(a.rlt)
+			})
+	}
+</script>
+</html>

@@ -23,8 +23,10 @@ urlpatterns = [
     url(r'^register/$', view.register),
     url(r'^search_form/$', search.search_form),
     url(r'^search/$', search.search),
-    url(r'^WebLogin/$',view.getImage),
+    url(r'^overtime/$', view.overtime),
+    url(r'^WebLogin/$',view.overtime),
     url(r'^login/$',view.login),
+    url(r'^count/$',view.count1),
     url(r'^search-post/$', search2.search_post),
     url(r'^admin/', admin.site.urls),
 ]

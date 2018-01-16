@@ -8,6 +8,9 @@ class Publisher(models.Model):
     country = models.CharField(max_length=50)
     website = models.URLField()
 
+    def _unicode_(self):
+    	return self.name
+    	pass
 class Author(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=40)
@@ -21,3 +24,20 @@ class Book(models.Model):
 class user(models.Model):
     name = models.CharField(max_length=30)
     password = models.CharField(max_length=50)
+
+class count(models.Model):
+    FHaveDataCount = models.CharField(max_length=30)
+    FOnLineCount = models.CharField(max_length=30)
+    FOffLineCount = models.CharField(max_length=30)
+    FUnCouplingCount = models.CharField(max_length=30)
+    FCouplingCount = models.CharField(max_length=30)
+    FContainerCount = models.CharField(max_length=30)
+    FUnContainCount = models.CharField(max_length=30)
+    FRunningCount = models.CharField(max_length=30)
+    FStopCount = models.CharField(max_length=30)
+    FAlarmCount = models.CharField(max_length=30)
+    FNoAlarmCount = models.CharField(max_length=30)
+class overTime(models.Model):
+	date=models.DateField()
+	name=models.CharField(max_length=30)
+	address=models.CharField(max_length=30)

@@ -5,9 +5,11 @@ from django.views.decorators.csrf import csrf_exempt
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import random
 import json
-from TestModel.models import user
+from TestModel.models import user ,count,overTime
 import io
 import hashlib
+from django.forms.models import model_to_dict
+from django.core import serializers
 
 @csrf_exempt
 def hello(request):
@@ -78,3 +80,17 @@ def register(request):
 			return HttpResponse("注册成功")
 	else:
 		return render_to_response('register.html')
+
+def count1(request):
+	result=count.objects.get(id=1)
+	di = model_to_dict(result,exclude=['id'])#转化为dict
+	return HttpResponse(json.dumps(di))
+	pass
+
+def overtime(request):
+	arr=[]
+	re=overTime.objects.all()
+	for var in re:
+		di = model_to_dict(var,exclude=['id','date'])
+		arr.append(di)
+	return HttpResponse(json.dumps(arr))
